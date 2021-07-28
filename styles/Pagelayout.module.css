@@ -10,7 +10,7 @@
 }
 .pagelayout aside {
     grid-row: 1;
-    grid-row-end: 4;
+    grid-row-end: 5;
 }
 .pagelayout main {
     grid-column: 2;

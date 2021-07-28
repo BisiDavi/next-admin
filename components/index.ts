@@ -4,5 +4,10 @@ export { default as Sidebar } from './sidebar';
 export { default as Loading } from './loading';
 export { default as Logo } from './logo';
 export { default as Card } from './card';
-export { Input } from './form';
-export { createDispatcherFields, createAdminFields } from './fields';
+export { Input, InputField } from './formElements';
+export {
+    createDispatcherFields,
+    createAdminFields,
+    getInputName,
+    getInputType,
+} from './fields';

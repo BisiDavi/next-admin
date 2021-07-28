@@ -1,16 +1,17 @@
-export const createDispatcherFields = {
+export const createDispatcherFields: createDispatcherFields = {
     userInfo: ['First Name', 'Last Name'],
     userNumber: ['Email', 'Phone Number', 'Whatsapp Number'],
-    userCredentials: ['UserName', 'Password', 'Confirm Password'],
+    userCredentials: ['User Name', 'Password', 'Confirm Password'],
     fleetType: ['Fleet Brand', 'Fleet Model'],
     fleetDetails: ['Fleet Color', 'Fleet Plate Number', 'Fleet Owner'],
 };
-export const createAdminFields = {
+export const createAdminFields: createAdminFields = {
     userInfo: ['First Name', 'Last Name'],
     userNumber: ['Email', 'Phone Number', 'Whatsapp Number'],
-    userCredentials: ['UserName', 'Password', 'Confirm Password'],
+    userCredentials: ['User Name', 'Password', 'Confirm Password'],
 };
 export function getInputName(inputName) {
+    console.log('inputName', inputName);
     const splitName = inputName.split(' ');
     const firstName = splitName[0];
     const lastName = splitName[1];
@@ -28,7 +29,7 @@ export function getInputName(inputName) {
     }
 }
 
-export function getInputType(inputName) {
+export function getInputType(inputName: string) {
     const lowercaseInputName = inputName.toLocaleLowerCase();
     if (lowercaseInputName === 'email') {
         return 'email';
@@ -41,3 +42,17 @@ export function getInputType(inputName) {
         return 'text';
     }
 }
+
+type createDispatcherFields = {
+    userInfo: string[];
+    userNumber: string[];
+    userCredentials: string[];
+    fleetType: string[];
+    fleetDetails: string[];
+};
+
+type createAdminFields = {
+    userInfo: string[];
+    userNumber: string[];
+    userCredentials: string[];
+};
