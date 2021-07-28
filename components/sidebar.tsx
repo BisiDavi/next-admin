@@ -4,12 +4,9 @@ import { Logo } from '@components/.';
 
 export default function Sidebar() {
     const router = useRouter();
-    console.log('next-router', router);
 
     function setActiveRoute(route) {
-        console.log('route', route);
         const activeRoute = router.isReady && router.route.includes(route);
-        console.log('activeRoute', activeRoute);
 
         const routeState = activeRoute ? 'active' : '';
         return routeState;
@@ -40,7 +37,7 @@ export default function Sidebar() {
     ];
     return (
         <aside className='sidebar'>
-					<div className='navbar-brand-box'>
+            <div className='navbar-brand-box'>
                 <Logo />
                 <ul className='menu my-5'>
                     {sidebarMenuList.map((sidebar, index) => (

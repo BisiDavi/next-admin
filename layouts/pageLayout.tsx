@@ -15,7 +15,7 @@ export default function pageLayout({
             <div className={styles.pagelayout}>
                 <Header title={title} />
                 <Sidebar />
-                <main>{children}</main>
+                <main className='container-fluid'>{children}</main>
                 <Footer />
             </div>
             <style jsx>{`

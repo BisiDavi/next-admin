@@ -44,19 +44,21 @@
         ]
     },
     "accountTransaction": {
-        "head": ["S/N", "Store Name", "Orders", "Average Destination"],
+        "head": ["S/N", "Store Name", "Orders", "Average Destination", "Date"],
         "body": [
             {
                 "sn": 1,
                 "storeName": "Kitchen Royale",
                 "orders": "20",
-                "averageDesination": "10"
+                "averageDesination": "10",
+                "date": "28/07/21"
             },
             {
                 "sn": 2,
                 "storeName": "Food Royale",
                 "orders": "20",
-                "averageDesination": "10"
+                "averageDesination": "10",
+                "date": "28/07/21"
             }
         ]
     }
