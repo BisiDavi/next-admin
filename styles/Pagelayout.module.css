@@ -1,0 +1,22 @@
+.pagelayout {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr 7fr 1fr;
+    grid-row-gap: 20px;
+}
+.pagelayout header {
+    grid-column: 2;
+    grid-row: 1;
+}
+.pagelayout aside {
+    grid-row: 1;
+    grid-row-end: 4;
+}
+.pagelayout main {
+    grid-column: 2;
+    grid-row: 2;
+}
+.pagelayout footer {
+    grid-column: 2;
+    grid-row: 3/4;
+}
