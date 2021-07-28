@@ -1,0 +1,63 @@
+{
+    "dispatcherStatus": {
+        "head": [
+            "S/N",
+            "Dispatcher Name",
+            "Completed Orders",
+            "Bonus Orders",
+            "Status",
+            "Active Orders",
+            "Total Destination",
+            "Avg. Delivery Time"
+        ],
+        "body": [
+            {
+                "sn": 1,
+                "dispatcherName": "Igba Joshua",
+                "completedOrders": "20",
+                "bonusOrders": "5",
+                "status": "active",
+                "activeOrders": "20",
+                "totalDestination": "10",
+                "averageDeliveryTime": "15"
+            },
+            {
+                "sn": 2,
+                "dispatcherName": "Igba Samson",
+                "completedOrders": "10",
+                "bonusOrders": "5",
+                "status": "active",
+                "activeOrders": "20",
+                "totalDestination": "10",
+                "averageDeliveryTime": "15"
+            },
+            {
+                "sn": 2,
+                "dispatcherName": "Kayode Cole",
+                "completedOrders": "10",
+                "bonusOrders": "5",
+                "status": "inactive",
+                "activeOrders": "20",
+                "totalDestination": "10",
+                "averageDeliveryTime": "15"
+            }
+        ]
+    },
+    "accountTransaction": {
+        "head": ["S/N", "Store Name", "Orders", "Average Destination"],
+        "body": [
+            {
+                "sn": 1,
+                "storeName": "Kitchen Royale",
+                "orders": "20",
+                "averageDesination": "10"
+            },
+            {
+                "sn": 2,
+                "storeName": "Food Royale",
+                "orders": "20",
+                "averageDesination": "10"
+            }
+        ]
+    }
+}

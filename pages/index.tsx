@@ -1,66 +1,22 @@
 import { Pagelayout } from '@layouts/.';
-
+import { Card } from '@components/.';
 
 export default function Home() {
+    const cards = [
+        { title: 'Pending Orders', count: '1,587' },
+        { title: 'Orders Today', count: '46,782' },
+        { title: 'Average Orders This Week', count: '200' },
+        { title: 'All Time', count: '1,800' },
+    ];
     return (
         <Pagelayout title='Welcome'>
             <div className='container-fluid'>
                 <div className='row'>
-                    <div className='col-xl-3 col-md-6'>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <i className='bx bx-layer float-right m-0 h2 text-muted'></i>
-                                <h6 className='text-muted text-uppercase mt-0'>
-                                    Pending Orders
-                                </h6>
-                                <h3 className='mb-3' data-plugin='counterup'>
-                                    1,587
-                                </h3>
-                            </div>
+                    {cards.map((card, index) => (
+                        <div key={index} className='my-4 col-xl-3 col-md-6'>
+                            <Card data={card} />
                         </div>
-                    </div>
-
-                    <div className='col-xl-3 col-md-6'>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <i className='bx bx-dollar-circle float-right m-0 h2 text-muted'></i>
-                                <h6 className='text-muted text-uppercase mt-0'>
-                                    Orders Today
-                                </h6>
-                                <h3 className='mb-3'>
-                                    <span data-plugin='counterup'>46,782</span>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-xl-3 col-md-6'>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <i className='bx bx-bx bx-analyse float-right m-0 h2 text-muted'></i>
-                                <h6 className='text-muted text-uppercase mt-0'>
-                                    Orders This Week
-                                </h6>
-                                <h3 className='mb-3'>
-                                    <span data-plugin='counterup'>15.9</span>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-xl-3 col-md-6'>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <i className='bx bx-basket float-right m-0 h2 text-muted'></i>
-                                <h6 className='text-muted text-uppercase mt-0'>
-                                    All Time
-                                </h6>
-                                <h3 className='mb-3' data-plugin='counterup'>
-                                    1,890
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
 
                 <div className='row'>
@@ -307,32 +263,30 @@ export default function Home() {
                                         id='recent-orders'
                                     >
                                         <thead>
-                                            <tr>
-                                                <th className='border-top-0'>
-                                                    S/N
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Dispatcher Name
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Completed Orders
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Bonus Orders
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Status
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Active Orders
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Total Destination
-                                                </th>
-                                                <th className='border-top-0'>
-                                                    Avg. Delivery Time
-                                                </th>
-                                            </tr>
+                                            <th className='border-top-0'>
+                                                S/N
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Dispatcher Name
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Completed Orders
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Bonus Orders
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Status
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Active Orders
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Total Destination
+                                            </th>
+                                            <th className='border-top-0'>
+                                                Avg. Delivery Time
+                                            </th>
                                         </thead>
                                         <tbody>
                                             <tr>
@@ -343,78 +297,6 @@ export default function Home() {
                                                     Igba Joshua
                                                 </td>
                                                 <td>20</td>
-                                                <td>5</td>
-                                                <td className='text-truncate'>
-                                                    <span className='badge badge-soft-success p-2'>
-                                                        active
-                                                    </span>
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    20
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    10
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    15
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className='text-truncate'>
-                                                    2
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    Igba Samson
-                                                </td>
-                                                <td>10</td>
-                                                <td>2</td>
-                                                <td className='text-truncate'>
-                                                    <span className='badge badge-soft-danger p-2'>
-                                                        inactive
-                                                    </span>
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    10
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    15
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    20
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className='text-truncate'>
-                                                    3
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    Igba Johnson
-                                                </td>
-                                                <td>20</td>
-                                                <td>5</td>
-                                                <td className='text-truncate'>
-                                                    <span className='badge badge-soft-success p-2'>
-                                                        active
-                                                    </span>
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    20
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    10
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    15
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className='text-truncate'>
-                                                    4
-                                                </td>
-                                                <td className='text-truncate'>
-                                                    Igba David
-                                                </td>
-                                                <td>10</td>
                                                 <td>5</td>
                                                 <td className='text-truncate'>
                                                     <span className='badge badge-soft-success p-2'>
