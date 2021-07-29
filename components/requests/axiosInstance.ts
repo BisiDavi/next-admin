@@ -21,14 +21,11 @@ export function getTokenValid() {
 
 export function makeTokenInvalid() {
     axios.defaults.headers.common['Authorization'] = null;
-    console.log(
-        "axiosInstance.defaults.headers.common['Authorization']",
-        axios.defaults.headers.common['Authorization'],
-    );
 }
 
-export function isLoggedIn(detailsFromStorage, router) {
+export function isLoggedIn(detailsFromStorage, router, authToken) {
     const token = getTokenValid();
+    setAuthToken(authToken);
     if (
         (token === undefined || token === null) &&
         detailsFromStorage === null

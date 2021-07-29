@@ -7,8 +7,6 @@ function getFirstLetter(name) {
 
 export default function Avatar({ name }: avatarProps) {
     const { firstLetter, secondLetter } = getFirstLetter(name);
-    console.log('firstLetter, secondLetter', firstLetter, secondLetter);
-
     return (
         <div className='avatar  bg-secondary'>
             {firstLetter} . {secondLetter}

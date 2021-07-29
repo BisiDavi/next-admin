@@ -11,7 +11,7 @@ export default function CreateDispatcherForm() {
 
     function createDispatcher(dispatcherData) {
         loadingState(true);
-        postRequest('/dispatchers', dispatcherData)
+        postRequest('/dispatchers', JSON.stringify(dispatcherData))
             .then((response) => {
                 console.log('response', response);
                 toast.success('Dispatcher successfully created');
@@ -33,7 +33,6 @@ export default function CreateDispatcherForm() {
                 whatsappNumber: '',
                 userName: '',
                 password: '',
-                confirmPassword: '',
                 fleetBrand: '',
                 fleetModel: '',
                 fleetColor: '',

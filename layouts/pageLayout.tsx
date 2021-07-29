@@ -21,16 +21,17 @@ export default function PageLayout({
 
     useEffect(() => {
         const currentUserDetails = getStorage('currentUser');
+        console.log('currentUser', currentUser);
         setCurrentUser(currentUserDetails);
     }, []);
 
     useEffect(() => {
         const currentUserDetails = getStorage('currentUser');
-        isLoggedIn(currentUserDetails, router);
+        isLoggedIn(currentUserDetails, router, currentUser?.token);
     }, []);
 
     return (
-        <UserContext.Provider value={{ user: currentUser }}>
+        <UserContext.Provider value={{ user: currentUser?.data }}>
             <Head>
                 <title>{title} | Instadrop </title>
                 response.data?.message{' '}

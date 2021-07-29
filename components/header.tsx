@@ -11,6 +11,8 @@ export default function Header({ title }: HeaderProps) {
 
     const router = useRouter();
 
+    console.log('user', user);
+
     const userName = `${user?.firstName} ${user?.lastName}`;
 
     function logUserOut() {

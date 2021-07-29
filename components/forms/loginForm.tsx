@@ -40,7 +40,7 @@ export default function LoginForm() {
                         response.data.data === undefined &&
                             toast.error(response.data?.message);
                         if (response.data?.token) {
-                            setUserDetails(response.data?.data);
+                            setUserDetails(response.data);
                             toast.success(userRole(response.data.data)),
                                 setAuthToken(response.data?.token);
                             router.push('/');
