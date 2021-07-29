@@ -19,8 +19,8 @@ export default function Sidebar() {
             name: 'Create Profiles',
             icons: 'fa fa-ball',
         },
-        { link: '/create-trips', name: 'Create Trips', icons: 'fa fa-ball' },
-        { link: '/active-trips', name: 'Active Trips', icons: 'fa fa-ball' },
+        { link: '/create-trip', name: 'Create Trips', icons: 'fa fa-ball' },
+        { link: '/active-trip', name: 'Active Trips', icons: 'fa fa-ball' },
         {
             link: '/dispatcher-list',
             name: 'Dispatcher List',
@@ -29,8 +29,8 @@ export default function Sidebar() {
         { link: '/admin-list', name: 'Admin List', icons: 'fa fa-ball' },
         { link: '/store-list', name: 'Store List', icons: 'fa fa-ball' },
         {
-            link: '/trips-history',
-            name: 'Trips History',
+            link: '/trip-history',
+            name: 'Trip History',
             icons: 'fa fa-ball',
         },
         { link: '/map', name: 'Map', icons: 'fa fa-ball' },
@@ -38,7 +38,9 @@ export default function Sidebar() {
     return (
         <aside className='sidebar'>
             <div className='navbar-brand-box'>
-                <Logo />
+                <div className='logo my-5'>
+                    <Logo />
+                </div>
                 <ul className='menu my-5'>
                     {sidebarMenuList.map((sidebar, index) => (
                         <li

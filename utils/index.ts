@@ -1,1 +1,1 @@
-export {  inputValue } from './inputHelper';
+export { getInputName, getInputType, inputValue } from './inputHelper';

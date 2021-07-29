@@ -1,0 +1,9 @@
+.modal {
+    width: 100;
+}
+.modalHeader button {
+    color: #ff0000;
+    border: none;
+    font-size: 40px;
+    background: none;
+}

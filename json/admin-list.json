@@ -1,0 +1,20 @@
+{
+	"head": [
+			"S/N",
+			"Name",
+			"Email",
+			"Phone Number",
+			"Orders Created",
+			"Delete"
+	],
+	"body": [
+			{
+					"sn": 1,
+					"name": "Joshua Ajayi",
+					"email": "ajayijoshua@gmail.com",
+					"phoneNumber": "08123456782",
+					"ordersCreated": "20",
+					"delete": "Delete"
+			}
+	]
+}

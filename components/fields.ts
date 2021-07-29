@@ -10,38 +10,26 @@ export const createAdminFields: createAdminFields = {
     userNumber: ['Email', 'Phone Number', 'Whatsapp Number'],
     userCredentials: ['User Name', 'Password', 'Confirm Password'],
 };
-export function getInputName(inputName) {
-    console.log('inputName', inputName);
-    const splitName = inputName.split(' ');
-    const firstName = splitName[0];
-    const lastName = splitName[1];
-    const thirdName = splitName[2];
 
-    if (splitName.length === 2) {
-        const camelCase = `${firstName.toLowerCase()}${lastName}`;
-        return camelCase;
-    } else if (splitName.length === 3) {
-        const camelCase = `${firstName.toLowerCase()}${lastName.toLowerCase()}${thirdName}`;
-        return camelCase;
-    } else {
-        const firstName = inputName.toLowerCase();
-        return firstName;
-    }
-}
+export const createTripFields: fields = {
+    fields: [
+        'Pickup Vendor',
+        'Pickup Description',
+        'Pickup Contact',
+        'Delivery Address',
+        'Phone Number',
+        'Note',
+        'Author',
+    ],
+};
 
-export function getInputType(inputName: string) {
-    const lowercaseInputName = inputName.toLocaleLowerCase();
-    if (lowercaseInputName === 'email') {
-        return 'email';
-    } else if (
-        lowercaseInputName === 'password' ||
-        lowercaseInputName === 'confirmPassword'
-    ) {
-        return 'password';
-    } else {
-        return 'text';
-    }
-}
+export const createStoreListFields: fields = {
+    fields: ['Name', 'Email', 'Whatsapp', 'Phone Number', 'Orders Created'],
+};
+
+export const loginFields: fields = {
+    fields: ['Email', 'Password'],
+};
 
 type createDispatcherFields = {
     userInfo: string[];
@@ -55,4 +43,8 @@ type createAdminFields = {
     userInfo: string[];
     userNumber: string[];
     userCredentials: string[];
+};
+
+type fields = {
+    fields: string[];
 };

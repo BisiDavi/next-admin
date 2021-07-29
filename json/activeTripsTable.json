@@ -1,0 +1,76 @@
+{
+    "availableOrders": {
+        "head": [
+            "S/N",
+            "Date",
+            "Order Number",
+            "Pickup",
+            "Destination",
+            "Number of Destination",
+            "Time Created",
+            "Delete"
+        ],
+        "body": [
+            {
+                "sn": 1,
+                "date": "20/05/21",
+                "orderNumber": "A10",
+                "pickup": "Kitchen Royal",
+                "destination": "Maintenance",
+                "numberOfDestination": "20",
+                "timeCreated": "8:30am",
+                "delete": "button"
+            },
+            {
+                "sn": 2,
+                "date": "21/05/21",
+                "orderNumber": "B10",
+                "pickup": "Kitchen Court",
+                "destination": "Maintenance",
+                "numberOfDestination": "20",
+                "timeCreated": "8:30am",
+                "delete": "button"
+            }
+        ]
+    },
+    "orderInProgress": {
+        "head": [
+            "S/N",
+            "Date",
+            "Order Number",
+            "Pickup",
+            "Destination",
+            "Number of Destination",
+            "Time Created",
+            "Time Accepted",
+            "Cancel",
+            "View Location"
+        ],
+        "body": [
+            {
+                "sn": 1,
+                "date": "20/05/21",
+                "orderNumber": "B102",
+                "pickup": "Kitchen Royal",
+                "destination": "Maintenance",
+                "numberOfDestination": "20",
+                "timeCreated": "8:30am",
+                "timeAccepted": "10:30am",
+                "cancel": "button",
+                "delete": "button"
+            },
+            {
+                "sn": 2,
+                "date": "21/05/21",
+                "orderNumber": "B10",
+                "pickup": "Kitchen Court",
+                "destination": "Maintenance",
+                "numberOfDestination": "20",
+                "timeCreated": "8:30am",
+                "timeAccepted": "10:30am",
+                "cancel": "button",
+                "delete": "button"
+            }
+        ]
+    }
+}

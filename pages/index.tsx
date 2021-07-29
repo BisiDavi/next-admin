@@ -1,6 +1,6 @@
 import { Pagelayout } from '@layouts/.';
 import { Card } from '@components/.';
-import tableContent from '@json/.';
+import tableContent from '../json/index.json';
 import { displayBody, displayHead } from '@components/table';
 
 export default function Home() {

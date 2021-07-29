@@ -1,4 +1,6 @@
+import { displayHead, displayTableBody } from '@components/table';
 import { Pagelayout } from '@layouts/.';
+import tableContent from '../json/dispatcherList.json'
 
 export default function DispatcherList() {
     return (
@@ -18,80 +20,13 @@ export default function DispatcherList() {
                                     className='table activate-select dt-responsive nowrap'
                                 >
                                     <thead>
-                                        <tr>
-                                            <th>S/N</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Whatsapp</th>
-                                            <th>Phone Number</th>
-                                            <th>Fleet Brand</th>
-                                            <th>Fleet Model</th>
-                                            <th>Fleet Color</th>
-                                            <th>Plate Number</th>
-                                            <th>Owner</th>
-                                            <th>Orders Completed</th>
-                                            <th>Delete</th>
-                                            <th>Deactivate</th>
-                                            <th>View Location</th>
-                                        </tr>
+                                        <tr>{displayHead(tableContent)}</tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Joshua Ajayi</td>
-                                            <td>ajayijoshua@gmail.com</td>
-                                            <td>08123456782</td>
-                                            <td>08123456782</td>
-                                            <td>Bajaj</td>
-                                            <td>B231z</td>
-                                            <td>Red</td>
-                                            <td>APP2314</td>
-                                            <td>Kenny Adio</td>
-                                            <td>20</td>
-                                            <td>
-                                                <button className='btn btn-danger'>
-                                                    Delete
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button className='btn btn-warning'>
-                                                    Deactivate{' '}
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button className='btn btn-success'>
-                                                    View Location
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Tolani Ajayi</td>
-                                            <td>tolani@gmail.com</td>
-                                            <td>08123456782</td>
-                                            <td>08123456782</td>
-                                            <td>Suzuki</td>
-                                            <td>B231z</td>
-                                            <td>Red</td>
-                                            <td>APP2314</td>
-                                            <td>Tolani Adio</td>
-                                            <td>20</td>
-                                            <td>
-                                                <button className='btn btn-danger'>
-                                                    Delete
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button className='btn btn-warning'>
-                                                    Deactivate{' '}
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button className='btn btn-success'>
-                                                    View Location
-                                                </button>
-                                            </td>
-                                        </tr>
+                                        {displayTableBody(
+                                            'dispatcherTrip',
+                                            tableContent,
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

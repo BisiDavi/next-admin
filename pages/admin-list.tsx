@@ -1,64 +1,28 @@
 import { Pagelayout } from '@layouts/.';
+import { displayHead, displayTableBody } from '@components/table';
+import tableContent from '../json/admin-list.json';
 
-export default function OrderHistory() {
+export default function Adminlist() {
     return (
-        <Pagelayout title='Order History'>
+        <Pagelayout title='Admin List'>
             <div className='row'>
                 <div className='col-12'>
-                    <div
-                        style={{ height: '50vh' }}
-                        className='create-order position-relative'
-                    >
+                    <div className='create-order position-relative'>
                         <div className='card'>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                }}
-                                className='card-title position-relative'
-                            ></div>
+                            <div className='card-title d-flex justify-content-center align-items-center position-relative'>
+                                <h4 className='text-center'>Admin List</h4>
+                            </div>
                             <div className='card-body'>
                                 <table
                                     id='state-saving-datatable'
                                     className='table activate-select dt-responsive nowrap'
                                 >
-                                    <thead>
-                                        <tr>
-                                            <th>S/N</th>
-                                            <th>Date</th>
-                                            <th>Order Number</th>
-                                            <th>Pickup</th>
-                                            <th>Destination</th>
-                                            <th>Number of Destination</th>
-                                            <th>Time Created</th>
-                                            <th>Time Accepted</th>
-                                            <th>Dispatcher Name</th>
-                                            <th>Time Delivered</th>
-                                            <th>Duration</th>
-                                        </tr>
-                                    </thead>
+                                    <thead>{displayHead(tableContent)}</thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                            <td>Cole</td>
-                                            <td>8:30 am 20/05/21</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                            <td>Cole</td>
-                                            <td>8:30 am 20/05/21</td>
-                                        </tr>
+                                        {displayTableBody(
+                                            'adminList',
+                                            tableContent,
+                                        )}
                                     </tbody>
                                 </table>
 

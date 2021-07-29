@@ -8,6 +8,7 @@ export { Input, InputField } from './formElements';
 export {
     createDispatcherFields,
     createAdminFields,
-    getInputName,
-    getInputType,
+    createTripFields,
+    createStoreListFields,
+    loginFields,
 } from './fields';

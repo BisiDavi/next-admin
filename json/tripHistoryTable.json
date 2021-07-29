@@ -1,0 +1,43 @@
+{
+    "head": [
+        "S/N",
+        "Date",
+        "Order Number",
+        "Pickup",
+        "Destination",
+        "Number of Destination",
+        "Time Created",
+        "Time Accepted",
+        "Dispatcher Name",
+        "Time Delivered",
+        "Duration"
+    ],
+    "body": [
+        {
+            "sn": 1,
+            "date": "20/05/21",
+            "orderNumber": "A10",
+            "pickup": "Kitchen Royal",
+            "destination": "Maintenance",
+            "numberOfDestination": "20",
+            "timeCreated": "8:30am",
+            "timeAccepted": "8:30am",
+            "dispatcherName": "Kunle",
+            "timeDelivered": "8:50am",
+            "duration": "20 minutes"
+        },
+        {
+            "sn": 2,
+            "date": "22/05/21",
+            "orderNumber": "A10",
+            "pickup": "Kitchen Royal",
+            "destination": "Maintenance",
+            "numberOfDestination": "20",
+            "timeCreated": "8:30am",
+            "timeAccepted": "8:30am",
+            "dispatcherName": "Kunle",
+            "timeDelivered": "8:50am",
+            "duration": "20 minutes"
+        }
+    ]
+}

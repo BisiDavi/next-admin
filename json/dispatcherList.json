@@ -1,0 +1,52 @@
+{
+    "head": [
+        "S/N",
+        "Name",
+        "Email",
+        "Whatsapp",
+        "Phone Number",
+        "Fleet Brand",
+        "Fleet Model",
+        "Fleet Color",
+        "Plate Number",
+        "Owner",
+        "Orders Completed",
+        "Delete",
+        "Deactivate",
+        "View Location"
+    ],
+    "body": [
+        {
+            "sn": 1,
+            "name": "Joshua Ajayi",
+            "email": "ajayijoshua@gmail.com",
+            "whatsapp": "08123456782",
+            "phoneNumber": "08123456782",
+            "fleetBrand": "Bajaj",
+            "fleetModel": "B231z",
+            "fleetColor": "Red",
+            "plateNumber": "APP2314",
+            "owner": "Kenny Adio",
+            "orders": "20",
+            "delete": "Delete",
+            "deactivate": "Deactivate",
+            "viewLocation": "View Location"
+        },
+        {
+            "sn": 2,
+            "name": "Joshua Ajayi",
+            "email": "ajayijoshua@gmail.com",
+            "whatsapp": "08123456782",
+            "phoneNumber": "08123456782",
+            "fleetBrand": "Bajaj",
+            "fleetModel": "B231z",
+            "fleetColor": "Red",
+            "plateNumber": "APP2314",
+            "owner": "Kenny Adio",
+            "orders": "20",
+            "delete": "Delete",
+            "deactivate": "Deactivate",
+            "viewLocation": "View Location"
+        }
+    ]
+}
