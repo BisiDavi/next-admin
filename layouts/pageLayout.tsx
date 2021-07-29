@@ -21,14 +21,17 @@ export default function PageLayout({
 
     useEffect(() => {
         const currentUserDetails = getStorage('currentUser');
-        console.log('currentUser', currentUser);
+        console.log('currentUserDetails', currentUserDetails);
         setCurrentUser(currentUserDetails);
     }, []);
 
     useEffect(() => {
-        const currentUserDetails = getStorage('currentUser');
-        isLoggedIn(currentUserDetails, router, currentUser?.token);
+        if (currentUser) {
+            isLoggedIn(currentUser, router, currentUser?.token);
+        }
     }, []);
+
+    console.log('currentUser', currentUser);
 
     return (
         <UserContext.Provider value={{ user: currentUser?.data }}>
