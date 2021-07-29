@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
 import { Footer, Sidebar, Header } from '@components/.';
 import styles from '@styles/Pagelayout.module.css';
 
@@ -15,6 +16,7 @@ export default function pageLayout({
             <div className={styles.pagelayout}>
                 <Header title={title} />
                 <Sidebar />
+                <ToastContainer />
                 <main className='container-fluid'>{children}</main>
                 <Footer />
             </div>
