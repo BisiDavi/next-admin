@@ -1,2 +1,7 @@
-export { setAuthToken, getTokenValid, axiosInstance } from './axiosInstance';
+export {
+    setAuthToken,
+    getTokenValid,
+    isLoggedIn,
+    axiosInstance,
+} from './axiosInstance';
 export { postRequest } from './request';

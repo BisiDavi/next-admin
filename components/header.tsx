@@ -59,6 +59,9 @@ export default function Header({ title }: HeaderProps) {
                         box-shadow: rgb(233, 236, 239) 0px 1px 1px;
                         padding: 0px 20px;
                     }
+                    header.page-header h1 {
+                        font-size: 30px;
+                    }
                     .navbar-header {
                         width: 100%;
                         display: flex;

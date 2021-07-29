@@ -10,14 +10,16 @@ export default function Adminlist() {
                     <div className='create-order position-relative'>
                         <div className='card'>
                             <div className='card-title d-flex justify-content-center align-items-center position-relative'>
-                                <h4 className='text-center'>Admin List</h4>
+                                <h4 className='text-center mt-4'>Admin List</h4>
                             </div>
                             <div className='card-body'>
                                 <table
                                     id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap'
+                                    className='table activate-select dt-responsive nowrap border-top'
                                 >
-                                    <thead>{displayHead(tableContent)}</thead>
+                                    <thead className='mt-3'>
+                                        {displayHead(tableContent)}
+                                    </thead>
                                     <tbody>
                                         {displayTableBody(
                                             'adminList',

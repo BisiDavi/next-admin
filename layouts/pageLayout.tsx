@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Footer, Sidebar, Header } from '@components/.';
 import styles from '@styles/Pagelayout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { getTokenValid } from '@components/requests';
+import { isLoggedIn } from '@components/requests';
 
 export default function PageLayout({
     children,
@@ -25,18 +25,8 @@ export default function PageLayout({
     }, []);
 
     useEffect(() => {
-        const token = getTokenValid();
-        console.log('token erecece', token);
-        console.log('getStorage currentUser', getStorage('currentUser'));
-
-        if (
-            (token === undefined || token === null) &&
-            getStorage('currentUser') === null
-        ) {
-            console.log('token', token);
-            toast.error('Please login');
-            router.push('/auth/login');
-        }
+        const currentUserDetails = getStorage('currentUser');
+        isLoggedIn(currentUserDetails, router);
     }, []);
 
     return (
