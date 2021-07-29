@@ -20,9 +20,19 @@
             "@styles/*": ["styles/*"],
             "@json/*": ["jsons/*"],
             "@utils/*": ["utils/*"],
-            "@hooks/*": ["hooks/*"]
+            "@hooks/*": ["hooks/*"],
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/**/*.ts",
+        "**/**/*.tsx",
+        "**/*.js",
+        "**/*.jsx",
+        "**/**/*.js",
+        "**/**/*.jsx"
+    ],
     "exclude": ["node_modules"]
 }

@@ -1,17 +1,27 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import { Footer, Sidebar, Header } from '@components/.';
 import styles from '@styles/Pagelayout.module.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { isTokenValid } from '@components/requests';
 
-export default function pageLayout({
+export default function PageLayout({
     children,
     title,
 }: PropsWithChildren<pageLayoutProps>) {
+    const router = useRouter();
+
+    useEffect(() => {
+        isTokenValid(router);
+    }, [router]);
+
     return (
         <>
             <Head>
                 <title>{title} | Instadrop </title>
+                response.data?.message{' '}
             </Head>
             <div className={styles.pagelayout}>
                 <Header title={title} />
