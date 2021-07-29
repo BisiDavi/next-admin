@@ -12,7 +12,7 @@ export function getInputName(inputName) {
         const camelCase = `${firstName.toLowerCase()}${lastName}`;
         return camelCase;
     } else if (splitName.length === 3) {
-        const camelCase = `${firstName.toLowerCase()}${lastName.toLowerCase()}${thirdName}`;
+        const camelCase = `${firstName.toLowerCase()}${lastName}${thirdName}`;
         return camelCase;
     } else {
         const firstName = inputName.toLowerCase();

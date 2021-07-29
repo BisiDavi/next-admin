@@ -1,8 +1,28 @@
+import { toast } from 'react-toastify';
+
 import { Formik } from 'formik';
-import { InputField, createDispatcherFields } from '@components/.';
+import { InputField, Loading, createDispatcherFields } from '@components/.';
 import { inputValue } from '@utils/.';
+import { postRequest } from '@components/requests';
+import { useLoading } from '@hooks/.';
 
 export default function CreateDispatcherForm() {
+    const { loading, loadingState } = useLoading();
+
+    function createDispatcher(dispatcherData) {
+        loadingState(true);
+        postRequest('/dispatchers', dispatcherData)
+            .then((response) => {
+                console.log('response', response);
+                toast.success('Dispatcher successfully created');
+                loadingState(false);
+            })
+            .catch((error) => {
+                console.error('error', error);
+                toast.error('error in creating dispatcher');
+                loadingState(false);
+            });
+    }
     return (
         <Formik
             initialValues={{
@@ -21,10 +41,9 @@ export default function CreateDispatcherForm() {
                 fleetOwner: '',
             }}
             onSubmit={(values, actions) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    actions.setSubmitting(false);
-                }, 1000);
+                alert(JSON.stringify(values, null, 2));
+                createDispatcher(values);
+                actions.setSubmitting(false);
             }}
         >
             {({
@@ -33,103 +52,119 @@ export default function CreateDispatcherForm() {
                 handleBlur,
                 values,
                 errors,
-            }: formValues) => (
-                <form onSubmit={handleSubmit} className='needs-validation px-4'>
-                    <div className='form-group'>
-                        <h5 className='text-primary'>Personal Info</h5>
-                        <div className='row my-3'>
-                            <InputField
-                                fields={createDispatcherFields.userInfo}
-                                className='col-6 col-lg-6'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                errors={errors}
-                                value={
-                                    values[
-                                        inputValue(
-                                            createDispatcherFields.userInfo,
-                                        )
-                                    ]
-                                }
-                            />
-                        </div>
-                    </div>
-                    <div className='row my-3 align-items-center'>
-                        <InputField
-                            fields={createDispatcherFields.userNumber}
-                            className='col-4 col-lg-4'
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            errors={errors}
-                            value={
-                                values[
-                                    inputValue(createDispatcherFields.userInfo)
-                                ]
-                            }
-                        />
-                    </div>
-                    <div className='form-group'>
-                        <h5 className='text-primary'>Credentials</h5>
-                        <div className='row my-3'>
-                            <InputField
-                                fields={createDispatcherFields.userCredentials}
-                                className='col-12 col-lg-4 col-md-4'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                errors={errors}
-                                value={
-                                    values[
-                                        inputValue(
-                                            createDispatcherFields.userCredentials,
-                                        )
-                                    ]
-                                }
-                            />
-                        </div>
-                    </div>
-                    <div className='form-group'>
-                        <h5 className='text-primary'>Fleet Details</h5>
-                        <div className='row my-3'>
-                            <InputField
-                                fields={createDispatcherFields.fleetType}
-                                className='col-6 col-lg-6'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                errors={errors}
-                                value={
-                                    values[
-                                        inputValue(
-                                            createDispatcherFields.fleetType,
-                                        )
-                                    ]
-                                }
-                            />
-                        </div>
-                        <div className='row my-3'>
-                            <InputField
-                                fields={createDispatcherFields.fleetDetails}
-                                className='col-12 col-lg-4 col-md-4'
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                errors={errors}
-                                value={
-                                    values[
-                                        inputValue(
-                                            createDispatcherFields.fleetDetails,
-                                        )
-                                    ]
-                                }
-                            />
-                        </div>
-                    </div>
-                    <button
-                        className='btn btn-primary waves-effect waves-light'
-                        type='submit'
-                    >
-                        Submit form
-                    </button>
-                </form>
-            )}
+            }: formValues) => {
+                return (
+                    <>
+                        {Boolean(loading) && <Loading />}
+                        <form
+                            onSubmit={handleSubmit}
+                            className='needs-validation px-4'
+                        >
+                            <div className='form-group'>
+                                <h5 className='text-primary'>Personal Info</h5>
+                                <div className='row my-3'>
+                                    <InputField
+                                        fields={createDispatcherFields.userInfo}
+                                        className='col-6 col-lg-6'
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        errors={errors}
+                                        value={
+                                            values[
+                                                inputValue(
+                                                    createDispatcherFields.userInfo,
+                                                )
+                                            ]
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <div className='row my-3 align-items-center'>
+                                <InputField
+                                    fields={createDispatcherFields.userNumber}
+                                    className='col-4 col-lg-4'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    errors={errors}
+                                    value={
+                                        values[
+                                            inputValue(
+                                                createDispatcherFields.userInfo,
+                                            )
+                                        ]
+                                    }
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <h5 className='text-primary'>Credentials</h5>
+                                <div className='row my-3'>
+                                    <InputField
+                                        fields={
+                                            createDispatcherFields.userCredentials
+                                        }
+                                        className='col-12 col-lg-4 col-md-4'
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        errors={errors}
+                                        value={
+                                            values[
+                                                inputValue(
+                                                    createDispatcherFields.userCredentials,
+                                                )
+                                            ]
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <div className='form-group'>
+                                <h5 className='text-primary'>Fleet Details</h5>
+                                <div className='row my-3'>
+                                    <InputField
+                                        fields={
+                                            createDispatcherFields.fleetType
+                                        }
+                                        className='col-6 col-lg-6'
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        errors={errors}
+                                        value={
+                                            values[
+                                                inputValue(
+                                                    createDispatcherFields.fleetType,
+                                                )
+                                            ]
+                                        }
+                                    />
+                                </div>
+                                <div className='row my-3'>
+                                    <InputField
+                                        fields={
+                                            createDispatcherFields.fleetDetails
+                                        }
+                                        className='col-12 col-lg-4 col-md-4'
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        errors={errors}
+                                        value={
+                                            values[
+                                                inputValue(
+                                                    createDispatcherFields.fleetDetails,
+                                                )
+                                            ]
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <button
+                                className='btn btn-primary waves-effect waves-light'
+                                type='submit'
+                            >
+                                Submit form
+                            </button>
+                        </form>
+                    </>
+                );
+            }}
         </Formik>
     );
 }
