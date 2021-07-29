@@ -41,7 +41,7 @@ export default function CreateOrders() {
                             </div>
                         </div>
                         <button
-                            className='btn createTrip btn-success waves-effect waves-light position-absolute'
+                            className='btn createTrip btn-success waves-effect waves-light mt-5'
                             onClick={() => modalHandler(true)}
                         >
                             <i className='bx bx-plus bx-2'></i>
@@ -54,7 +54,6 @@ export default function CreateOrders() {
                         button.createTrip {
                             border-radius: 5px;
                             padding: 10px;
-                            right: 30px;
                         }
                     `}
                 </style>

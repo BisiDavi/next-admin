@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
 
 export const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
@@ -9,16 +8,19 @@ export const axiosInstance = axios.create({
 });
 
 export function setAuthToken(token) {
-    console.log('token', token);
-    return (axiosInstance.defaults.headers.common[
-        'Authorization'
-    ] = `Bearer ${token}`);
+    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }
 
-export function isTokenValid(_router) {
+export function getTokenValid() {
     const token = axiosInstance.defaults.headers.common['Authorization'];
-    if (token === null) {
-        toast.error('Please login');
-        _router.push('/auth/login');
-    }
+    console.log('token', token);
+    return token;
+}
+
+export function makeTokenInvalid() {
+    axiosInstance.defaults.headers.common['Authorization'] = null;
+    console.log(
+        "axiosInstance.defaults.headers.common['Authorization']",
+        axiosInstance.defaults.headers.common['Authorization'],
+    );
 }

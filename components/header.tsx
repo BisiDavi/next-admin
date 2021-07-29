@@ -1,6 +1,24 @@
-import Image from 'next/image';
+import React, { useContext } from 'react';
+import { useRouter } from 'next/router';
+import { useLocalStorage } from '@hooks/.';
+import { makeTokenInvalid } from '@components/requests/axiosInstance';
+import { UserContext } from '../context/userContext';
+import Avatar from '@components/avatar';
 
 export default function Header({ title }: HeaderProps) {
+    const { user } = useContext(UserContext);
+    const { removeStorage } = useLocalStorage();
+
+    const router = useRouter();
+
+    const userName = `${user?.firstName} ${user?.lastName}`;
+
+    function logUserOut() {
+        makeTokenInvalid();
+        removeStorage('currentUser');
+        router.push('/auth/login');
+    }
+
     return (
         <header className='page-header'>
             <div className='navbar-header'>
@@ -13,58 +31,23 @@ export default function Header({ title }: HeaderProps) {
                 </button>
                 <h1 className='my-2'>{title}</h1>
 
-                <div className='d-flex align-items-center'>
-                    <div className='dropdown d-inline-block ml-2'>
-                        <button
-                            type='button'
-                            className='btn header-item waves-effect'
-                            id='page-header-user-dropdown'
-                            data-toggle='dropdown'
-                            aria-haspopup='true'
-                            aria-expanded='false'
-                        >
-                            <Image
-                                className='rounded-circle header-profile-user'
-                                src='/images/users/avatar-3.jpg'
-                                alt='Header Avatar'
-                                height={100}
-                                width={100}
-                            />
-                            <span className='d-none d-sm-inline-block ml-1'>
-                                Joshua D.
-                            </span>
-                            <i className='mdi mdi-chevron-down d-none d-sm-inline-block'></i>
-                        </button>
-                        <div className='dropdown-menu dropdown-menu-right'>
-                            <a
-                                className='dropdown-item d-flex align-items-center justify-content-between'
-                                href='#'
-                            >
-                                <span>Profile</span>
-                                <span>
-                                    <span className='badge badge-pill badge-warning'>
-                                        1
-                                    </span>
-                                </span>
-                            </a>
-                            <a
-                                className='dropdown-item d-flex align-items-center justify-content-between'
-                                href='#'
-                            >
-                                Settings
-                            </a>
-                            <a
-                                className='dropdown-item d-flex align-items-center justify-content-between'
-                                href='#'
-                            >
-                                <span>Log Out</span>
-                            </a>
-                        </div>
-                    </div>
+                <div className='d-flex align-items-center justify-content ml-2 user-details'>
+                    <Avatar name={userName} />
+                    <span>{userName}</span>
+                    <button
+                        className='btn btn-danger d-flex align-items-center justify-content-between mx-4'
+                        onClick={logUserOut}
+                    >
+                        Log Out
+                    </button>
                 </div>
             </div>
             <style jsx>
                 {`
+                    .user-details span {
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
                     header.page-header {
                         display: flex;
                         -webkit-box-pack: justify;

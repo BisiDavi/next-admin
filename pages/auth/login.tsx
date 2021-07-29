@@ -1,6 +1,9 @@
 import LoginForm from '@components/forms/loginForm';
+import { getTokenValid } from '@components/requests';
 
 export default function Login() {
+    getTokenValid();
+
     return (
         <div className='login-page  d-flex align-items-center'>
             <div className='login-here justify-content-center p-3 mx-auto d-flex align-items-center flex-column bg-white'>

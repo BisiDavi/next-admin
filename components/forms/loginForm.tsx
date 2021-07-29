@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
@@ -10,8 +10,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginForm() {
     const { loading, loadingState } = useLoading();
+    const [userDetails, setUserDetails] = useState(null);
     const router = useRouter();
     const { setStorage } = useLocalStorage();
+
+    useEffect(() => {
+        if (userDetails) {
+            setStorage('currentUser', userDetails);
+        }
+    }, [userDetails, setStorage]);
 
     function userRole(user) {
         if (user.isSuperAdmin) {
@@ -28,24 +35,20 @@ export default function LoginForm() {
             }}
             onSubmit={(values, actions) => {
                 loadingState(true);
-                console.log('actions', actions);
                 postRequest('/login', values)
                     .then((response) => {
-                        console.log('response', response);
                         response.data.data === undefined &&
                             toast.error(response.data?.message);
                         if (response.data?.token) {
+                            setUserDetails(response.data?.data);
                             toast.success(userRole(response.data.data)),
                                 setAuthToken(response.data?.token);
-                            setStorage('currentUser', response.data?.data);
-
                             router.push('/');
                         }
 
                         loadingState(false);
                     })
-                    .catch((error) => {
-                        console.log('error', error);
+                    .catch(() => {
                         toast.error('An error just occured');
                         loadingState(false);
                     });

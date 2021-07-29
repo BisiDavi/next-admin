@@ -1,9 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
 import { Pagelayout } from '@layouts/.';
+import { useLocalStorage } from '../hooks/.';
 import { Card } from '@components/.';
 import tableContent from '../json/index.json';
 import { displayBody, displayHead } from '@components/table';
 
 export default function Home() {
+    const [currentUser, setCurrentUser] = useState(null);
+    const { getStorage } = useLocalStorage();
+
     const cards = [
         { title: 'Pending Orders', count: '1,587' },
         { title: 'Orders Today', count: '46,782' },
@@ -11,8 +17,21 @@ export default function Home() {
         { title: 'All Time', count: '1,800' },
     ];
 
+    useEffect(() => {
+        const currentUserDetails = getStorage('currentUser');
+        setCurrentUser(currentUserDetails);
+    }, []);
+
+    function userRole() {
+        if (currentUser?.isSuperAdmin) {
+            return 'Super Admin';
+        }
+    }
+
+    const getUserRole = userRole();
+
     return (
-        <Pagelayout title='Welcome'>
+        <Pagelayout title={`Welcome ${getUserRole}`}>
             <div className='container-fluid'>
                 <div className='row'>
                     {cards.map((card, index) => (
