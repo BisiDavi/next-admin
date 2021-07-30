@@ -36,9 +36,9 @@ export default function PageLayout({
                 undefined &&
             currentUser !== null
         ) {
-            axiosInstance.defaults.headers.common['Authorization'] =
-                currentUser.token;
-            console.log('axios token set');
+            axiosInstance.defaults.headers.common[
+                'Authorization'
+            ] = `Bearer ${currentUser.token}`;
         }
     }, [currentUser]);
 
