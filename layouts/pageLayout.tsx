@@ -4,11 +4,11 @@ import { UserContext } from '../context/userContext';
 import { useLocalStorage } from '../hooks/.';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { Footer, Sidebar, Header } from '@components/.';
 import styles from '@styles/Pagelayout.module.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { isLoggedIn } from '@components/requests';
+import { axiosInstance, isLoggedIn } from '@components/requests';
 
 export default function PageLayout({
     children,
@@ -19,25 +19,33 @@ export default function PageLayout({
 
     const router = useRouter();
 
-    useEffect(() => {
-        const currentUserDetails = getStorage('currentUser');
-        console.log('currentUserDetails', currentUserDetails);
-        setCurrentUser(currentUserDetails);
-    }, []);
+    console.log('currentUser', currentUser);
 
     useEffect(() => {
-        if (currentUser) {
-            isLoggedIn(currentUser, router, currentUser?.token);
+        const currentUserDetails = getStorage('currentUser');
+
+        if (currentUserDetails) {
+            setCurrentUser(currentUserDetails);
+            isLoggedIn(currentUserDetails, router);
         }
     }, []);
 
-    console.log('currentUser', currentUser);
+    useEffect(() => {
+        if (
+            axiosInstance.defaults.headers.common['Authorization'] ===
+                undefined &&
+            currentUser !== null
+        ) {
+            axiosInstance.defaults.headers.common['Authorization'] =
+                currentUser.token;
+            console.log('axios token set');
+        }
+    }, [currentUser]);
 
     return (
         <UserContext.Provider value={{ user: currentUser?.data }}>
             <Head>
                 <title>{title} | Instadrop </title>
-                response.data?.message{' '}
             </Head>
             <div className={styles.pagelayout}>
                 <Header title={title} />

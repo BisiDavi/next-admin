@@ -40,7 +40,6 @@ export default function CreateDispatcherForm() {
                 fleetOwner: '',
             }}
             onSubmit={(values, actions) => {
-                alert(JSON.stringify(values, null, 2));
                 createDispatcher(values);
                 actions.setSubmitting(false);
             }}

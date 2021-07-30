@@ -5,27 +5,27 @@ export const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
         'content-type': 'application/json',
-        Authorization: 'Bearer ',
     },
 });
 
 export function setAuthToken(token) {
-    return (axios.defaults.headers.common['Authorization'] = `Bearer ${token}`);
+    return (axiosInstance.defaults.headers.common[
+        'Authorization'
+    ] = `Bearer ${token}`);
 }
 
 export function getTokenValid() {
-    const token = axios.defaults.headers.common['Authorization'];
+    const token = axiosInstance.defaults.headers.common['Authorization'];
     console.log('token', token);
     return token;
 }
 
 export function makeTokenInvalid() {
-    axios.defaults.headers.common['Authorization'] = null;
+    axiosInstance.defaults.headers.common['Authorization'] = null;
 }
 
-export function isLoggedIn(detailsFromStorage, router, authToken) {
+export function isLoggedIn(detailsFromStorage, router) {
     const token = getTokenValid();
-    setAuthToken(authToken);
     if (
         (token === undefined || token === null) &&
         detailsFromStorage === null

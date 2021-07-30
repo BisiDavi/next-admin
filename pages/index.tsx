@@ -24,7 +24,7 @@ export default function Home() {
     }, []);
 
     function userRole() {
-        if (currentUser?.isSuperAdmin) {
+        if (currentUser?.data.isSuperAdmin) {
             return 'Super Admin';
         }
     }
