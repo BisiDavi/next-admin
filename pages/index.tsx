@@ -31,8 +31,10 @@ export default function Home() {
 
     const getUserRole = userRole();
 
+    const pageTitle = getUserRole === undefined ? '' : getUserRole;
+
     return (
-        <Pagelayout title={`Welcome ${getUserRole}`}>
+        <Pagelayout title={`Welcome ${pageTitle}`}>
             <div className={`${styles.home} container-fluid`}>
                 <div className='row'>
                     {cards.map((card, index) => (

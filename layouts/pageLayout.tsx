@@ -26,6 +26,7 @@ export default function PageLayout({
 
         if (currentUserDetails) {
             setCurrentUser(currentUserDetails);
+        } else {
             isLoggedIn(currentUserDetails, router);
         }
     }, []);
@@ -42,13 +43,15 @@ export default function PageLayout({
         }
     }, [currentUser]);
 
+    const pageTitle = title === undefined ? 'Welcome' : title;
+
     return (
         <UserContext.Provider value={{ user: currentUser?.data }}>
             <Head>
-                <title>{title} | Instadrop </title>
+                <title>{pageTitle} | Instadrop </title>
             </Head>
             <div className={styles.pagelayout}>
-                <Header title={title} />
+                <Header title={pageTitle} />
                 <Sidebar />
                 <ToastContainer />
                 <main className='container-fluid'>{children}</main>

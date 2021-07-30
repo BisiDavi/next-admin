@@ -6,8 +6,6 @@ export const axiosInstance = axios.create({
     headers: {
         'content-type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': ['POST', 'GET', 'PATCH', 'DELETE'],
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     },
 });
 
@@ -33,7 +31,6 @@ export function isLoggedIn(detailsFromStorage, router) {
         (token === undefined || token === null) &&
         detailsFromStorage === null
     ) {
-        console.log('token', token);
         toast.error('Please login');
         router.push('/auth/login');
     }
