@@ -1,5 +1,4 @@
 import { toast } from 'react-toastify';
-
 import { Formik } from 'formik';
 import { InputField, Loading, createDispatcherFields } from '@components/.';
 import { inputValue } from '@utils/.';
@@ -67,6 +66,7 @@ export default function CreateDispatcherForm() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         errors={errors}
+                                        required
                                         value={
                                             values[
                                                 inputValue(
@@ -84,6 +84,7 @@ export default function CreateDispatcherForm() {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     errors={errors}
+                                    required
                                     value={
                                         values[
                                             inputValue(
@@ -104,6 +105,7 @@ export default function CreateDispatcherForm() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         errors={errors}
+                                        required
                                         value={
                                             values[
                                                 inputValue(

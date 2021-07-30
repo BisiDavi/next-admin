@@ -15,9 +15,10 @@ export default function Loading() {
                         align-items: center;
                         background: #4a4a4a9c;
                         align-items: center;
-                        position: fixed;
+                        position: absolute;
                         z-index: 1000;
                         top: 0;
+                        left: 0;
                     }
                 `}
             </style>
