@@ -5,7 +5,7 @@ import { makeTokenInvalid } from '@components/requests/axiosInstance';
 import { UserContext } from '../context/userContext';
 import Avatar from '@components/avatar';
 
-export default function Header({ title }: HeaderProps) {
+export default function Header({ title, toggleSidebar }: HeaderProps) {
     const { user } = useContext(UserContext);
     const { removeStorage } = useLocalStorage();
 
@@ -26,10 +26,11 @@ export default function Header({ title }: HeaderProps) {
             <div className='navbar-header'>
                 <button
                     type='button'
+                    onClick={toggleSidebar}
                     className='btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect'
                     id='vertical-menu-btn'
                 >
-                    <i className='fa fa-fw fa-bars'></i>
+                    <i className='fa fa-fw fa-bars fa-3x'></i>
                 </button>
                 <h1 className='my-2'>{title}</h1>
 
@@ -71,6 +72,27 @@ export default function Header({ title }: HeaderProps) {
                         height: 100px;
                         justify-content: space-between;
                     }
+
+                    @media (max-width: 768px) {
+                        header.page-header h1.my-2 {
+                            font-size: 22px;
+                            text-align: center;
+                            font-weight: bold;
+                        }
+                        .user-details {
+                            justify-content: space-around;
+                            display: flex;
+                            flex-direction: column;
+                            height: 80px;
+                        }
+                        .user-details span {
+                            font-size: 15px;
+                        }
+                        .user-details button {
+                            font-size: 12px;
+                            font-weight: bold;
+                        }
+                    }
                 `}
             </style>
         </header>
@@ -79,4 +101,5 @@ export default function Header({ title }: HeaderProps) {
 
 interface HeaderProps {
     title: String;
+    toggleSidebar: () => void;
 }

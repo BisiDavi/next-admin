@@ -43,7 +43,7 @@ export default function Storelist() {
                             className='btn storeList btn-success waves-effect waves-light'
                             onClick={() => modalHandler(true)}
                         >
-                            <i className='fa fa-plus fx-2'></i>
+                            <i className='fa fa-plus fx-2 mx-2'></i>
                             Create Trip
                         </button>
                     </div>

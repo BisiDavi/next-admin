@@ -58,7 +58,7 @@ export default function CreateOrders() {
                             className='btn createTrip btn-success waves-effect waves-light mt-5'
                             onClick={() => modalHandler(true)}
                         >
-                            <i className='bx bx-plus bx-2'></i>
+                            <i className='fa fa-plus fa-2 mx-2'></i>
                             Create Trip
                         </button>
                     </div>

@@ -8,7 +8,7 @@ function getFirstLetter(name) {
 export default function Avatar({ name }: avatarProps) {
     const { firstLetter, secondLetter } = getFirstLetter(name);
     return (
-        <div className='avatar  bg-secondary'>
+        <div className='avatar'>
             {firstLetter} . {secondLetter}
             <style jsx>
                 {`
@@ -17,6 +17,7 @@ export default function Avatar({ name }: avatarProps) {
                         padding: 10px;
                         border: none;
                         height: 70px;
+                        background-color: rgb(57, 63, 78);
                         width: 70px;
                         margin: 0px 15px;
                         display: flex;
@@ -25,6 +26,11 @@ export default function Avatar({ name }: avatarProps) {
                         color: white;
                         font-weight: bold;
                         font-size: 20px;
+                    }
+                    @media (max-width: 768px) {
+                        .avatar {
+                            display: none;
+                        }
                     }
                 `}
             </style>

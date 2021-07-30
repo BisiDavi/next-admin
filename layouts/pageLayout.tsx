@@ -16,7 +16,7 @@ export default function PageLayout({
 }: PropsWithChildren<pageLayoutProps>) {
     const [currentUser, setCurrentUser] = useState(null);
     const { getStorage } = useLocalStorage();
-
+    const [sidebar, setSidebar] = useState(false);
     const router = useRouter();
 
     console.log('currentUser', currentUser);
@@ -43,6 +43,10 @@ export default function PageLayout({
         }
     }, [currentUser]);
 
+    function toggleSidebar() {
+        setSidebar(!sidebar);
+    }
+
     const pageTitle = title === undefined ? 'Welcome' : title;
 
     return (
@@ -51,8 +55,8 @@ export default function PageLayout({
                 <title>{pageTitle} | Instadrop </title>
             </Head>
             <div className={styles.pagelayout}>
-                <Header title={pageTitle} />
-                <Sidebar />
+                <Header title={pageTitle} toggleSidebar={toggleSidebar} />
+                {sidebar && <Sidebar />}
                 <ToastContainer />
                 <main className='container-fluid'>{children}</main>
                 <Footer />
