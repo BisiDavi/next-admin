@@ -4,11 +4,9 @@ export default function Footer() {
     return (
         <footer className='footer'>
             <div className='row align-items-center justify-content-between'>
-                <div className='col-sm-2'>2021 © InstaDrop.</div>
-                <div className='col-sm-2'>
-                    <div className='text-sm-right d-none d-sm-block'>
-                        Powered by CloudMall.
-                    </div>
+                <div className='col-6'>2021 © InstaDrop.</div>
+                <div className='col-6'>
+                    <div className='text-sm-right'>Powered by CloudMall.</div>
                 </div>
             </div>
             <style jsx>

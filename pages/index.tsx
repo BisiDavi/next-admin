@@ -45,7 +45,7 @@ export default function Home() {
                 </div>
 
                 <div className='row'>
-                    <div className='col-lg-4'>
+                    <div className='col-lg-6 my-3'>
                         <div className='card'>
                             <div className='card-body'>
                                 <h4 className='card-title d-inline-block'>
@@ -61,23 +61,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className='col-lg-4'>
-                        <div className='card'>
-                            <div className='card-body'>
-                                <h4 className='card-title d-inline-block'>
-                                    Statistics
-                                </h4>
-
-                                <div
-                                    id='morris-bar-example'
-                                    className='morris-chart'
-                                    style={{ height: '260px' }}
-                                ></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-lg-4'>
+                    <div className='col-lg-6 my-3'>
                         <div className='card'>
                             <div className='card-body'>
                                 <h4 className='card-title d-inline-block'>

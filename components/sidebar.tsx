@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Logo } from '@components/.';
 
-export default function Sidebar() {
+export default function Sidebar({ toggleSidebar }: SidebarProps) {
     const router = useRouter();
 
     function setActiveRoute(route) {
@@ -58,23 +58,55 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </div>
+            <div onClick={toggleSidebar} className='overlay'></div>
             <style jsx>
                 {`
-									.sidebar-menu{
-										display
-									}
-									aside.sidebar li{
-										list-style:none;
-									}
                     aside.sidebar {
+                        height: 100%;
+                    }
+                    aside.sidebar li {
+                        list-style: none;
+                    }
+                    aside navbar-brand-box {
                         background-color: rgb(57, 63, 78);
                         height: 100%;
                     }
                     aside a {
                         color: white;
                     }
+                    .overlay {
+                        background-color: black;
+                        display: none;
+                    }
+
+                    @media (max-width: 768px) {
+                        aside.sidebar {
+                            position: fixed;
+                            z-index: 100;
+                            display: flex;
+                            width: 100%;
+                        }
+                        .overlay {
+                            opacity: 0.5;
+                            background: black;
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                            z-index: 10;
+                            position: fixed;
+                            right: 0;
+                        }
+                        .navbar-brand-box {
+                            background-color: rgb(57, 63, 78);
+                            z-index: 1000;
+                        }
+                    }
                 `}
             </style>
         </aside>
     );
+}
+
+interface SidebarProps {
+    toggleSidebar: () => void;
 }

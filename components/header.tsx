@@ -30,7 +30,7 @@ export default function Header({ title, toggleSidebar }: HeaderProps) {
                     className='btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect'
                     id='vertical-menu-btn'
                 >
-                    <i className='fa fa-fw fa-bars fa-3x'></i>
+                    <i className='fa fa-fw fa-bars fa-2x'></i>
                 </button>
                 <h1 className='my-2'>{title}</h1>
 
@@ -74,8 +74,11 @@ export default function Header({ title, toggleSidebar }: HeaderProps) {
                     }
 
                     @media (max-width: 768px) {
+                        header.page-header {
+                            padding: 0px;
+                        }
                         header.page-header h1.my-2 {
-                            font-size: 22px;
+                            font-size: 18px;
                             text-align: center;
                             font-weight: bold;
                         }

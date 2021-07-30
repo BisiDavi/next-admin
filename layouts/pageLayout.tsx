@@ -56,7 +56,7 @@ export default function PageLayout({
             </Head>
             <div className={styles.pagelayout}>
                 <Header title={pageTitle} toggleSidebar={toggleSidebar} />
-                {sidebar && <Sidebar />}
+                {sidebar && <Sidebar toggleSidebar={toggleSidebar} />}
                 <ToastContainer />
                 <main className='container-fluid'>{children}</main>
                 <Footer />
@@ -66,6 +66,8 @@ export default function PageLayout({
                     display: grid;
                     grid-template-columns: 1fr 2fr;
                     grid-template-rows: 1fr 2fr 1f;
+                }
+
                 }
             `}</style>
         </UserContext.Provider>
