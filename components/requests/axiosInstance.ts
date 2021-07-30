@@ -5,6 +5,9 @@ export const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
         'content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': ['POST', 'GET', 'PATCH', 'DELETE'],
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     },
 });
 

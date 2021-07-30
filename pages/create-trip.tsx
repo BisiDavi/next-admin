@@ -1,11 +1,23 @@
+import { useEffect } from 'react';
 import { Pagelayout } from '@layouts/.';
 import { displayHead, displayTableBody } from '@components/table';
 import displayModal from '@utils/displayModal';
 import tableContent from '../json/createTripTable.json';
 import useModal from '../hooks/useModal';
+import { getRequest } from '@components/requests/request';
 
 export default function CreateOrders() {
     const { modal, modalHandler } = useModal();
+
+    useEffect(() => {
+        getRequest('/orders')
+            .then((response) => {
+                console.log('response', response);
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
+    }, []);
 
     const modalContent = {
         title: 'Create Trip',
@@ -30,7 +42,9 @@ export default function CreateOrders() {
                                     id='state-saving-datatable'
                                     className='table activate-select dt-responsive nowrap'
                                 >
-                                    <thead>{displayHead(tableContent)}</thead>
+                                    <thead>
+                                        <tr>{displayHead(tableContent)}</tr>
+                                    </thead>
                                     <tbody>
                                         {displayTableBody(
                                             'createTrip',
