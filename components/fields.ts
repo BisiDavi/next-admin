@@ -16,15 +16,14 @@ export const createTripFields: fields = {
         'Pickup Vendor',
         'Pickup Description',
         'Pickup Contact',
-        'Delivery Address',
-        'Phone Number',
         'Note',
-        'Author',
+        'Admin',
     ],
+    group: ['Delivery Address', 'Phone Number'],
 };
 
 export const createStoreListFields: fields = {
-    fields: ['Name', 'Email', 'Whatsapp', 'Phone Number', 'Orders Created'],
+    fields: ['Vendor Name', 'Email', 'Whatsapp', 'Phone Number', 'Orders Created'],
 };
 
 export const loginFields: fields = {
@@ -47,4 +46,5 @@ type createAdminFields = {
 
 type fields = {
     fields: string[];
+    group?: string[];
 };

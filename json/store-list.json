@@ -1,8 +1,9 @@
 {
     "head": [
         "S/N",
-        "Name",
+        "Vendor Name",
         "Email",
+        "Whatsapp",
         "Phone Number",
         "Orders Created",
         "Delete"
