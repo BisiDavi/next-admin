@@ -1,3 +1,4 @@
+import { Table } from 'react-bootstrap';
 import { displayHead, displayTableBody } from '@components/table';
 import activeTrips from '../json/activeTripsTable.json';
 import { Pagelayout } from '@layouts/.';
@@ -23,10 +24,7 @@ export default function ActiveTrip() {
                                     </h4>
                                 </div>
                                 <div className='card-body'>
-                                    <table
-                                        id='state-saving-datatable'
-                                        className='table activate-select dt-responsive nowrap'
-                                    >
+                                    <Table hover responsive bordered striped>
                                         <thead>
                                             <tr>
                                                 {displayHead(
@@ -40,7 +38,7 @@ export default function ActiveTrip() {
                                                 activeTrips.availableOrders,
                                             )}
                                         </tbody>
-                                    </table>
+                                    </Table>
 
                                     <div
                                         className='modal fade bd-availableOrders-modal-lg'
@@ -162,10 +160,7 @@ export default function ActiveTrip() {
                                     </h4>
                                 </div>
                                 <div className='card-body'>
-                                    <table
-                                        id='state-saving-datatable'
-                                        className='table activate-select dt-responsive nowrap'
-                                    >
+                                    <Table hover responsive bordered striped>
                                         <thead>
                                             {
                                                 <tr>
@@ -181,7 +176,7 @@ export default function ActiveTrip() {
                                                 activeTrips.orderInProgress,
                                             )}
                                         </tbody>
-                                    </table>
+                                    </Table>
 
                                     <div
                                         className='modal fade bd-orderInProgress-modal-lg'

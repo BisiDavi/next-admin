@@ -1,3 +1,4 @@
+import { Table } from 'react-bootstrap';
 import { Pagelayout } from '@layouts/.';
 import { displayHead, displayTableBody } from '@components/table';
 import tableContent from '../json/store-list.json';
@@ -25,10 +26,7 @@ export default function Storelist() {
                                 Store List
                             </h4>
                             <div className='card-body border-top'>
-                                <table
-                                    id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap'
-                                >
+                                <Table hover responsive bordered striped>
                                     <thead>{displayHead(tableContent)}</thead>
                                     <tbody>
                                         {displayTableBody(
@@ -36,7 +34,7 @@ export default function Storelist() {
                                             tableContent,
                                         )}
                                     </tbody>
-                                </table>
+                                </Table>
                             </div>
                         </div>
                         <button

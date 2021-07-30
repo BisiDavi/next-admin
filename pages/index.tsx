@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import { Pagelayout } from '@layouts/.';
 import { useLocalStorage } from '../hooks/.';
 import { Card } from '@components/.';
@@ -88,10 +89,7 @@ export default function Home() {
                                     Dispatcher Status
                                 </h4>
                                 <div className='table-responsive'>
-                                    <table
-                                        className='table table-centered table-hover table-xl mb-0 border-top'
-                                        id='recent-orders'
-                                    >
+                                    <Table hover responsive bordered striped>
                                         <thead className='pt-3'>
                                             {displayHead(
                                                 tableContent.dispatcherStatus,
@@ -102,7 +100,7 @@ export default function Home() {
                                                 tableContent.dispatcherStatus,
                                             )}
                                         </tbody>
-                                    </table>
+                                    </Table>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +115,7 @@ export default function Home() {
                                     Account Transactions
                                 </h4>
                                 <div className='table-responsive'>
-                                    <table className='table table-borderless table-hover table-centered table-nowrap mb-0 border-top'>
+                                    <Table hover responsive bordered striped>
                                         <thead className='pt-3'>
                                             {displayHead(
                                                 tableContent.accountTransaction,
@@ -128,7 +126,7 @@ export default function Home() {
                                                 tableContent.accountTransaction,
                                             )}
                                         </tbody>
-                                    </table>
+                                    </Table>
                                 </div>
                             </div>
                         </div>

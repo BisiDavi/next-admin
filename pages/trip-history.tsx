@@ -1,6 +1,7 @@
 import { Pagelayout } from '@layouts/.';
 import { displayHead, displayTableBody } from '@components/table';
 import tableContent from '../json/tripHistoryTable.json';
+import { Table } from 'react-bootstrap';
 
 export default function Triphistory() {
     return (
@@ -11,10 +12,7 @@ export default function Triphistory() {
                         <div className='card'>
                             <div className='d-flex justify-content-center align-items-center card-title position-relative'></div>
                             <div className='card-body'>
-                                <table
-                                    id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap'
-                                >
+                                <Table hover responsive bordered striped>
                                     <thead>{displayHead(tableContent)}</thead>
                                     <tbody>
                                         {displayTableBody(
@@ -22,7 +20,7 @@ export default function Triphistory() {
                                             tableContent,
                                         )}
                                     </tbody>
-                                </table>
+                                </Table>
 
                                 <div
                                     className='modal fade bd-availableOrders-modal-lg'

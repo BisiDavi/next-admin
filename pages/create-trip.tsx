@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import { Pagelayout } from '@layouts/.';
 import { displayHead, displayTableBody } from '@components/table';
 import displayModal from '@utils/displayModal';
@@ -38,10 +39,7 @@ export default function CreateOrders() {
                             </h4>
                             <div className='card-body border-top'>
                                 <p className='card-subtitle mb-4'></p>
-                                <table
-                                    id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap'
-                                >
+                                <Table hover responsive bordered striped>
                                     <thead>
                                         <tr>{displayHead(tableContent)}</tr>
                                     </thead>
@@ -51,7 +49,7 @@ export default function CreateOrders() {
                                             tableContent,
                                         )}
                                     </tbody>
-                                </table>
+                                </Table>
                             </div>
                         </div>
                         <button

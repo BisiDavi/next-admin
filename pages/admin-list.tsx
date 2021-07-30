@@ -1,4 +1,5 @@
 import { Pagelayout } from '@layouts/.';
+import { Table } from 'react-bootstrap';
 import { displayHead, displayTableBody } from '@components/table';
 import tableContent from '../json/admin-list.json';
 
@@ -13,10 +14,7 @@ export default function Adminlist() {
                                 <h4 className='text-center mt-4'>Admin List</h4>
                             </div>
                             <div className='card-body'>
-                                <table
-                                    id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap border-top'
-                                >
+                                <Table hover responsive bordered striped>
                                     <thead className='mt-3'>
                                         {displayHead(tableContent)}
                                     </thead>
@@ -26,8 +24,7 @@ export default function Adminlist() {
                                             tableContent,
                                         )}
                                     </tbody>
-                                </table>
-
+                                </Table>
                                 <div
                                     className='modal fade bd-availableOrders-modal-lg'
                                     tabIndex={-1}

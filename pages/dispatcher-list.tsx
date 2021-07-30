@@ -1,6 +1,7 @@
+import { Table } from 'react-bootstrap';
 import { displayHead, displayTableBody } from '@components/table';
 import { Pagelayout } from '@layouts/.';
-import tableContent from '../json/dispatcherList.json'
+import tableContent from '../json/dispatcherList.json';
 
 export default function DispatcherList() {
     return (
@@ -15,10 +16,7 @@ export default function DispatcherList() {
                             <div className='card-body'>
                                 <h4 className='card-title'></h4>
                                 <p className='card-subtitle mb-4'></p>
-                                <table
-                                    id='state-saving-datatable'
-                                    className='table activate-select dt-responsive nowrap'
-                                >
+                                <Table hover responsive bordered striped>
                                     <thead>
                                         <tr>{displayHead(tableContent)}</tr>
                                     </thead>
@@ -28,7 +26,7 @@ export default function DispatcherList() {
                                             tableContent,
                                         )}
                                     </tbody>
-                                </table>
+                                </Table>
                             </div>
                         </div>
                     </div>
