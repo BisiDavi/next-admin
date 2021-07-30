@@ -49,7 +49,7 @@ export default function CreateAdminForm() {
             }: formValues) => {
                 return (
                     <>
-                        {true && <Loading />}
+                        {Boolean(loading) && <Loading />}
                         <form
                             onSubmit={handleSubmit}
                             className='needs-validation px-4'
